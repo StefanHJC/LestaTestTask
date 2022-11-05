@@ -1,5 +1,5 @@
 ﻿
-namespace Core.Blocks
+namespace Core.Blocks.Factories
 {
     public interface IBlockFactory
     {

@@ -2,13 +2,13 @@ using UnityEngine;
 
 namespace Core.Blocks.Factories
 {
-    public class MovableBlocksFactory : MonoBehaviour, IBlockFactory
+    public abstract class MovableBlocksFactory : MonoBehaviour, IBlockFactory
     {
-        [SerializeField] private Sprite _blockSprite;
         [SerializeField] private MovableBlock _dummyBlock;
+        [SerializeField] private Sprite _blockSprite;
         [SerializeField] private BlockType _blockType;
 
-        public IBlock Create()
+        public virtual IBlock Create()
         {
             IBlock block;
 

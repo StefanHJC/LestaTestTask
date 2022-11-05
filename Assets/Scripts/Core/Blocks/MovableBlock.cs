@@ -10,7 +10,7 @@ namespace Core.Blocks
         private SpriteRenderer _renderer;
         private BlockType _type;
 
-        BlockType IBlock.Type { get => _type; }
+        BlockType IBlock.Type => _type;
 
         public void Init(BlockType type, Sprite sprite)
         {
