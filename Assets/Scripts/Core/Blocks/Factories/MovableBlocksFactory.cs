@@ -6,9 +6,10 @@ namespace Core.Blocks.Factories
     public abstract class MovableBlocksFactory : IBlockFactory
     {
         [Inject] private DiContainer _diContainer;
-        [Inject] private Config _config;
 
-        private MovableBlock dummyBlock => _config.DummyBlock;
+        private MovableBlock dummyBlock => Config.DummyBlock;
+        
+        [Inject] protected Config Config;
 
         protected Sprite BlockSprite;
         protected BlockType BlockType;
@@ -20,12 +21,6 @@ namespace Core.Blocks.Factories
             block.Init(BlockType, BlockSprite);
 
             return dummyBlock;
-        }
-
-        private void OnValidate()
-        {
-            if (BlockSprite == null)
-                throw new System.InvalidOperationException("Block sprite not setted");
         }
     }
 }

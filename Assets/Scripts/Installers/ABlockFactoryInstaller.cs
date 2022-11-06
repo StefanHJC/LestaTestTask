@@ -6,8 +6,6 @@ namespace Installers
 { 
 public class ABlockFactoryInstaller : MonoInstaller
 {
-        [SerializeField] private Sprite _aBlockSprite;
-
         public override void InstallBindings()
         {
             Container.
