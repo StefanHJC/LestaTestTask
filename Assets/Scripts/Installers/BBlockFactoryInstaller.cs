@@ -6,13 +6,13 @@ namespace Installers
 {
     public class BBlockFactoryInstaller : MonoInstaller
     {
-        [SerializeField] private BBlockFactory _factory;
+        [SerializeField] private Sprite _BBlockSprite;
 
         public override void InstallBindings()
         {
             Container.
                 Bind<BBlockFactory>().
-                FromInstance(_factory).
+                FromNew().
                 AsSingle().
                 NonLazy();
         }

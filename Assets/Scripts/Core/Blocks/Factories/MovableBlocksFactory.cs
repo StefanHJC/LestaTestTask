@@ -1,26 +1,30 @@
 using UnityEngine;
+using Zenject;
 
 namespace Core.Blocks.Factories
 {
-    public abstract class MovableBlocksFactory : MonoBehaviour, IBlockFactory
+    public abstract class MovableBlocksFactory : IBlockFactory
     {
-        [SerializeField] private MovableBlock _dummyBlock;
-        [SerializeField] private Sprite _blockSprite;
-        [SerializeField] private BlockType _blockType;
+        [Inject] private DiContainer _diContainer;
+        [Inject] private Config _config;
+
+        private MovableBlock dummyBlock => _config.DummyBlock;
+
+        protected Sprite BlockSprite;
+        protected BlockType BlockType;
 
         public virtual IBlock Create()
         {
-            IBlock block;
+            GameObject blockGO = _diContainer.InstantiatePrefab(dummyBlock.gameObject);
+            IBlock block = blockGO.GetComponent<IBlock>(); 
+            block.Init(BlockType, BlockSprite);
 
-            block = Instantiate(_dummyBlock);
-            block.Init(_blockType, _blockSprite);
-
-            return block;
+            return dummyBlock;
         }
 
         private void OnValidate()
         {
-            if (_blockSprite == null)
+            if (BlockSprite == null)
                 throw new System.InvalidOperationException("Block sprite not setted");
         }
     }

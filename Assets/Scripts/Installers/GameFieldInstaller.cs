@@ -11,11 +11,11 @@ namespace Installers
         
         public override void InstallBindings()
         {
-            GameField gameFieldInstance = Container.InstantiatePrefabForComponent<GameField>(_gameField, _gameFieldPosition, Quaternion.identity, null);
+            //GameField gameFieldInstance = Container.InstantiatePrefabForComponent<GameField>(_gameField, _gameFieldPosition, Quaternion.identity, null);
 
             Container.
                 Bind<GameField>().
-                FromInstance(gameFieldInstance).
+                FromInstance(_gameField).
                 AsSingle().
                 NonLazy();
         }

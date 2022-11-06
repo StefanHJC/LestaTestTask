@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace Core.Blocks
 {
@@ -7,6 +8,8 @@ namespace Core.Blocks
     [RequireComponent(typeof(SpriteRenderer))]
     public class MovableBlock : MonoBehaviour, IBlock, IPointerClickHandler, IPointerEnterHandler
     {
+        [Inject] private MouseInputService _mouseHandler;
+
         private SpriteRenderer _renderer;
         private BlockType _type;
 
@@ -20,12 +23,12 @@ namespace Core.Blocks
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            throw new System.NotImplementedException();
+            _mouseHandler.OnSelectBlock(this);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            throw new System.NotImplementedException();
+            _mouseHandler.OnFocusBlock(this);
         }
 
         private void Awake()

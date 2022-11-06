@@ -1,17 +1,14 @@
 using UnityEngine;
 using Zenject;
-using Core.Blocks.Factories;
 
 namespace Installers
-{ 
-public class ABlockFactoryInstaller : MonoInstaller
 {
-        [SerializeField] private Sprite _aBlockSprite;
-
+    public class MouseInputServiceInstaller : MonoInstaller
+    {
         public override void InstallBindings()
         {
             Container.
-                Bind<ABlockFactory>().
+                Bind<MouseInputService>().
                 FromNew().
                 AsSingle().
                 NonLazy();

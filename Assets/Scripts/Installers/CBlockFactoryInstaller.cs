@@ -12,7 +12,7 @@ namespace Installers
         {
             Container.
                 Bind<CBlockFactory>().
-                FromInstance(_factory).
+                FromNew().
                 AsSingle().
                 NonLazy();
         }

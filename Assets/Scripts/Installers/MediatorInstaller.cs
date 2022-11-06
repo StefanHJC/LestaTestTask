@@ -1,12 +1,12 @@
 using UnityEngine;
 using Zenject;
 
-public class FieldStartupInstaller : MonoInstaller
+public class MediatorInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
         Container.
-            Bind<Core.FieldStartup>().
+            Bind<UI.Mediator>().
             FromNew().
             AsSingle();
     }
