@@ -8,33 +8,25 @@ namespace Core
 {
     public class GameField : MonoBehaviour
     {
-        [Header("Block columns")]
-        [SerializeField] private List<BackgroundCell> _aBlockColumn;
-        [SerializeField] private List<BackgroundCell> _bBlockColumn;
-        [SerializeField] private List<BackgroundCell> _cBlockColumn;
-
         [SerializeField] private List<BlockArea> _areas;
-
-        [Space]
-        [Header("Block column labels")]
-        [SerializeField] private Sprite _aColumnLabel;
-        [SerializeField] private Sprite _bColumnLabel;
-        [SerializeField] private Sprite _cColumnLabel;
 
         [Inject] private FieldStartup _fieldStartup;
 
         private List<MovableBlock> _blocksOnGameField = new List<MovableBlock>();
 
-
         [System.Serializable]
-        private struct BlockArea
+        public struct BlockArea
         {
             [SerializeField] private List<BackgroundCell> _area;
+            [SerializeField] private Sprite _areaLabel;
             [SerializeField] private BlockType _type;
 
-            public List<BackgroundCell> Area => _area;
+            public List<BackgroundCell> Cells => _area;
+            public Sprite AreaLabel => _areaLabel;
             public BlockType Type => _type;
         }
+
+        public List<BlockArea> BlockAreas => _areas;
 
         public event UnityAction BlockMovedToCorrectColumn;
         public event UnityAction BlockMovedFromCorrectColumn;
@@ -63,7 +55,6 @@ namespace Core
         private void Start()
         {
             PrepareField();
-            SetColumnLabels();
         }
 
         private void PrepareField()
@@ -80,25 +71,13 @@ namespace Core
             }
         }
 
-        private void SetColumnLabels()
-        {
-            Instantiate(_aColumnLabel, new Vector2(_aBlockColumn[0].transform.position.x, 1), Quaternion.identity, transform);
-            Instantiate(_bColumnLabel, new Vector2(_bBlockColumn[0].transform.position.x, 1), Quaternion.identity, transform);
-            Instantiate(_cColumnLabel, new Vector2(_cBlockColumn[0].transform.position.x, 1), Quaternion.identity, transform);
-        }
-
         private List<Vector2> GetSpawnableCoordinates()
         {
             List<Vector2> spawnableCoordinates = new List<Vector2>();
 
-            foreach (var cell in _aBlockColumn)
-                spawnableCoordinates.Add(cell.transform.position);
-
-            foreach (var cell in _bBlockColumn)
-                spawnableCoordinates.Add(cell.transform.position);
-
-            foreach (var cell in _cBlockColumn)
-                spawnableCoordinates.Add(cell.transform.position);
+            foreach (var area in _areas)
+                foreach(var cell in area.Cells)
+                    spawnableCoordinates.Add(cell.transform.position);
 
             return spawnableCoordinates;
         }
