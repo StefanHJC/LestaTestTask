@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1392a403976d70b489937a697fb0ae42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aBlockSprite: {fileID: 0}
 --- !u!1 &123357027
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +497,7 @@ MonoBehaviour:
   - {fileID: 1157202559}
   - {fileID: 209519343}
   - {fileID: 187562363}
-  - {fileID: 0}
+  - {fileID: 1486728029}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -716,7 +715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15b4d84cecf426449c439c7cb2f29f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BBlockSprite: {fileID: 0}
 --- !u!1 &1157202557
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d18ff4fd597b1244a73385befe88d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _blockSelector: {fileID: 4538576603842980079, guid: 71ed20611a3cec44f893e45d12a98733, type: 3}
 --- !u!1 &1486728027
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +912,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3515052696655632, guid: 7cfde1468dd1ec646ab19f6582aa609e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 448331728891090898, guid: 7cfde1468dd1ec646ab19f6582aa609e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 915996563172403085, guid: 7cfde1468dd1ec646ab19f6582aa609e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2479508538741170297, guid: 7cfde1468dd1ec646ab19f6582aa609e, type: 3}
       propertyPath: m_Name
       value: GameField
@@ -960,6 +971,18 @@ PrefabInstance:
     - target: {fileID: 2795532705502323252, guid: 7cfde1468dd1ec646ab19f6582aa609e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340791401658290455, guid: 7cfde1468dd1ec646ab19f6582aa609e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544446601106855174, guid: 7cfde1468dd1ec646ab19f6582aa609e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710382779660707662, guid: 7cfde1468dd1ec646ab19f6582aa609e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cfde1468dd1ec646ab19f6582aa609e, type: 3}

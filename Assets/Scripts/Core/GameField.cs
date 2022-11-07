@@ -13,6 +13,8 @@ namespace Core
         [SerializeField] private List<BackgroundCell> _bBlockColumn;
         [SerializeField] private List<BackgroundCell> _cBlockColumn;
 
+        [SerializeField] private List<BlockArea> _areas;
+
         [Space]
         [Header("Block column labels")]
         [SerializeField] private Sprite _aColumnLabel;
@@ -21,25 +23,47 @@ namespace Core
 
         [Inject] private FieldStartup _fieldStartup;
 
-        //public Vector2Int MapSize => (Vector2Int)_tilemap.size;
+        private List<MovableBlock> _blocksOnGameField = new List<MovableBlock>();
+
+
+        [System.Serializable]
+        private struct BlockArea
+        {
+            [SerializeField] private List<BackgroundCell> _area;
+            [SerializeField] private BlockType _type;
+
+            public List<BackgroundCell> Area => _area;
+            public BlockType Type => _type;
+        }
 
         public event UnityAction BlockMovedToCorrectColumn;
         public event UnityAction BlockMovedFromCorrectColumn;
         public event UnityAction AllBlocksInCorrectColumns;
 
-        private void Start()
+        public void TryMoveBlock(MovableBlock block, Vector2 position)
         {
-            PrepareField();
-            SetColumnLabels();
+            int maxAllowedMoveDistance = 1;
+
+            if (Vector2.Distance(block.transform.position, position) <= maxAllowedMoveDistance)
+                MoveBlock(block, position);
+
+            OnBlockMoved();
         }
 
-        private void OnValidate()
+        private void MoveBlock(MovableBlock block, Vector2 position)
         {
+            block.MoveTo(position);
         }
 
         private void OnBlockMoved()
         {
 
+        }
+
+        private void Start()
+        {
+            PrepareField();
+            SetColumnLabels();
         }
 
         private void PrepareField()
@@ -51,7 +75,8 @@ namespace Core
             {
                 var movableBlock = (MovableBlock)blocks[i];
                 movableBlock.transform.position = spawnableCoordinates[i];
-                //movableBlock.transform.SetParent(transform);
+                movableBlock.transform.SetParent(transform);
+                _blocksOnGameField.Add(movableBlock);
             }
         }
 
@@ -81,11 +106,9 @@ namespace Core
 
     public enum BlockType
     {
-        Empty = 0,
-        Locked = 1,
-        ABlock = 2,
-        BBlock = 3,
-        CBlock = 4
+        Locked = 0,
+        ABlock = 1,
+        BBlock = 2,
+        CBlock = 3
     }
-
 }

@@ -12,6 +12,7 @@ namespace UI
        // public void ToggleMenu() => _menu.Toggle();
        // public void CloseMenu() => _menu.Close();
         public void SelectBlock(Core.Blocks.MovableBlock block) => _blockSelector.Select(block);
-        public void HighlightBlock(Core.Blocks.MovableBlock block) => _blockSelector.Focus(block);
+        public void FocusBlock(Core.Blocks.MovableBlock block) => _blockSelector.Focus(block);
+        public void DeselectBlock(Core.Blocks.MovableBlock block) => _blockSelector.Deselect(block);
     }
 }

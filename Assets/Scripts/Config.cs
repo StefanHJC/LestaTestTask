@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Core.Blocks;
 
@@ -8,10 +9,12 @@ public class Config : ScriptableObject
     [SerializeField] private Sprite _aBlockSprite;
     [SerializeField] private Sprite _bBlockSprite;
     [SerializeField] private Sprite _cBlockSprite;
+
+    [Space]
     [SerializeField] private MovableBlock _dummyBlock;
 
     [Space]
-    [Header("Column label settings")]
+    [Header("Column label graphics")]
     [SerializeField] private Sprite _aBlockColumnLabel;
     [SerializeField] private Sprite _bBlockColumnLabel;
     [SerializeField] private Sprite _cBlockColumnLabel;
@@ -19,9 +22,15 @@ public class Config : ScriptableObject
     public Sprite ABlockSprite => _aBlockSprite;
     public Sprite BBlockSprite => _bBlockSprite;
     public Sprite CBlockSprite => _cBlockSprite;
+
     public MovableBlock DummyBlock => _dummyBlock;
 
     public Sprite ABlockLabel => _aBlockColumnLabel;
     public Sprite BBlockLabel => _bBlockColumnLabel;
     public Sprite CBlockLabel => _cBlockColumnLabel;
+
+    private void OnValidate()
+    {
+        // TODO
+    }
 }

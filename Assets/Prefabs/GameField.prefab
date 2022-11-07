@@ -1180,6 +1180,14 @@ MonoBehaviour:
   - {fileID: 817158990833995400}
   - {fileID: 4421385751129771632}
   - {fileID: 5244806701832684339}
+  _areas:
+  - _area:
+    - {fileID: 5650627219033022054}
+    - {fileID: 1848736140100999027}
+    - {fileID: 6973753031950729901}
+    - {fileID: 5948504493055738243}
+    - {fileID: 3937710037822646009}
+    _type: 1
   _aColumnLabel: {fileID: 275297483, guid: 503932f6ece05df4eb5bf0842e652f49, type: 3}
   _bColumnLabel: {fileID: -2022133518, guid: 503932f6ece05df4eb5bf0842e652f49, type: 3}
   _cColumnLabel: {fileID: -819642349, guid: 503932f6ece05df4eb5bf0842e652f49, type: 3}

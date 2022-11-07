@@ -11,8 +11,7 @@ namespace Core
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            Debug.Log("Moving");
-            _mouseInputService.TryMoveSelectedBlock();    
+            _mouseInputService.TryMoveSelectedBlock(transform.position);    
         }
     }
 }

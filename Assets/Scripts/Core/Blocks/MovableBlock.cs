@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
@@ -19,6 +20,11 @@ namespace Core.Blocks
         {
             _renderer.sprite = sprite;
             _type = type;
+        }
+
+        public void MoveTo(Vector2 position)
+        {
+            transform.position = position;
         }
 
         public void OnPointerClick(PointerEventData eventData)

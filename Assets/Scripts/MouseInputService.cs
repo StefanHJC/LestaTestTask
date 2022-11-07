@@ -5,9 +5,10 @@ using Zenject;
 public class MouseInputService
 {
     [Inject] private UI.Mediator _mediator;
+    [Inject] private Core.GameField _gameField;
 
     # nullable enable
-    private IBlock? _selectedBlock; 
+    private MovableBlock? _selectedBlock; 
 
     public void OnSelectBlock(MovableBlock block)
     {
@@ -17,21 +18,20 @@ public class MouseInputService
 
     public void OnDeselectBlock()
     {
+        _mediator.DeselectBlock(_selectedBlock);
         _selectedBlock = null;
     }
 
     public void OnFocusBlock(MovableBlock block)
     {
-        _mediator.HighlightBlock(block);
+        _mediator.FocusBlock(block);
     }
 
-    public void TryMoveSelectedBlock()
+    public void TryMoveSelectedBlock(Vector2 position)
     {
+        if (_selectedBlock == null)
+            return;
 
-    }
-
-    private void MoveSelectedBlock()
-    {
-
+        _gameField.TryMoveBlock(_selectedBlock, position);
     }
 }
