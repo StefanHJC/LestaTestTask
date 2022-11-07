@@ -16,7 +16,4 @@ MonoBehaviour:
   _bBlockSprite: {fileID: 21300000, guid: b7d825c235a0ee94faa6948982e4a9f5, type: 3}
   _cBlockSprite: {fileID: 21300000, guid: 891c6d74f2e87c54fbd6492fb65ebb60, type: 3}
   _dummyBlock: {fileID: 3726512202485022635, guid: 1a10d73dded14864eabe85157179bbdd, type: 3}
-  _aBlockColumnLabel: {fileID: 21300000, guid: 3f2ec09b56a9ded4b8e271ea44ef9f61, type: 3}
-  _bBlockColumnLabel: {fileID: 21300000, guid: b7d825c235a0ee94faa6948982e4a9f5, type: 3}
-  _cBlockColumnLabel: {fileID: 21300000, guid: 891c6d74f2e87c54fbd6492fb65ebb60, type: 3}
-  _blockSelectionBorder: {fileID: 3337703063478624502, guid: 359368d9419ac4345a5ddae2813dbd77, type: 3}
+  _dummyLabel: {fileID: 1665897061235845830, guid: 07ae6189d4f7b9c49af938f55be6c95e, type: 3}

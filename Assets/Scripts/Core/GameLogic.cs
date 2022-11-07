@@ -29,14 +29,14 @@ namespace Core
         {
             Time.timeScale = 0;
             Debug.Log("WIN");
-            //_mediator.ShowGameEndMessage("You are win!");
+            //_mediator.ShowEndGameScreem("You are win!");
         }
 
         private void Lose()
         {
             Time.timeScale = 0;
 
-         //   _mediator.ShowGameEndMessage("You are lose!");
+            //   _mediator.ShowEndGameScreem("You are lose!");
         }
 
         private void OnBlockMoved(MovableBlock block)

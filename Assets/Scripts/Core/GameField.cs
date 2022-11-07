@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 using Core.Blocks;
+using System.Linq;
 using Zenject;
 
 namespace Core
@@ -12,6 +13,7 @@ namespace Core
         [SerializeField] private List<BlockArea> _areas;
 
         [Inject] private FieldStartuper _fieldStartup;
+        [Inject] private Config _config;
 
         private List<MovableBlock> _blocksOnGameField = new List<MovableBlock>();
 
@@ -45,17 +47,12 @@ namespace Core
         private void MoveBlock(MovableBlock block, Vector2 position)
         {
             block.MoveTo(position);
-            Debug.Log("ROFLISH? " + _blocksOnGameField.Count);
         }
 
         private void Start()
         {
             PrepareField();
-        }
-
-        private void Update()
-        {
-            Debug.Log("UPDATE " + _blocksOnGameField.Count);
+            SetAreaLabels();
         }
 
         private void PrepareField()
@@ -67,6 +64,20 @@ namespace Core
             {
                 _blocksOnGameField[i].transform.position = spawnableCoordinates[i];
                 _blocksOnGameField[i].transform.SetParent(transform);
+            }
+        }
+
+        private void SetAreaLabels()
+        {
+            foreach (var area in _areas)
+            {
+                BackgroundCell firstCell = area.Cells.Where(cell => cell.transform.position.y == 0).FirstOrDefault();
+                Vector2 labelPosition = (Vector2)firstCell.transform.position + Vector2.up;
+                GameObject dummyLabel = Instantiate(_config.DummyLabel);
+
+                var renderer = dummyLabel.GetComponent<SpriteRenderer>();
+                dummyLabel.transform.position = labelPosition;
+                renderer.sprite = area.AreaLabel;
             }
         }
 

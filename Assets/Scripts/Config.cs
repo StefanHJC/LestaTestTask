@@ -11,12 +11,14 @@ public class Config : ScriptableObject
 
     [Space]
     [SerializeField] private MovableBlock _dummyBlock;
+    [SerializeField] private GameObject _dummyLabel;
 
     public Sprite ABlockSprite => _aBlockSprite;
     public Sprite BBlockSprite => _bBlockSprite;
     public Sprite CBlockSprite => _cBlockSprite;
 
     public MovableBlock DummyBlock => _dummyBlock;
+    public GameObject DummyLabel => _dummyLabel;
 
     private void OnValidate()
     {

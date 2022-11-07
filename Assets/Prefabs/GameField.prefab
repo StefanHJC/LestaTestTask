@@ -1170,7 +1170,7 @@ MonoBehaviour:
     - {fileID: 6973753031950729901}
     - {fileID: 5948504493055738243}
     - {fileID: 3937710037822646009}
-    _areaLabel: {fileID: 0}
+    _areaLabel: {fileID: 21300000, guid: 3f2ec09b56a9ded4b8e271ea44ef9f61, type: 3}
     _type: 1
   - _area:
     - {fileID: 325786694476139595}
@@ -1178,7 +1178,7 @@ MonoBehaviour:
     - {fileID: 8491429430611403536}
     - {fileID: 8641233407583773636}
     - {fileID: 5065953060430534591}
-    _areaLabel: {fileID: 0}
+    _areaLabel: {fileID: 21300000, guid: b7d825c235a0ee94faa6948982e4a9f5, type: 3}
     _type: 2
   - _area:
     - {fileID: 4865695742383144310}
@@ -1186,7 +1186,7 @@ MonoBehaviour:
     - {fileID: 817158990833995400}
     - {fileID: 4421385751129771632}
     - {fileID: 5244806701832684339}
-    _areaLabel: {fileID: 0}
+    _areaLabel: {fileID: 21300000, guid: 891c6d74f2e87c54fbd6492fb65ebb60, type: 3}
     _type: 3
 --- !u!114 &1929079072987750544
 MonoBehaviour:
