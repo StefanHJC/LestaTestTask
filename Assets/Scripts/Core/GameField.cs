@@ -78,6 +78,7 @@ namespace Core
                 var renderer = dummyLabel.GetComponent<SpriteRenderer>();
                 dummyLabel.transform.position = labelPosition;
                 renderer.sprite = area.AreaLabel;
+                dummyLabel.transform.SetParent(transform);
             }
         }
 

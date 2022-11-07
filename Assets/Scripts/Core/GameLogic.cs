@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
 using Core.Blocks;
-using UnityEngine.Events;
 
 namespace Core
 {
@@ -27,23 +25,13 @@ namespace Core
 
         private void Win()
         {
-            Time.timeScale = 0;
+            Application.Quit();
             Debug.Log("WIN");
-            //_mediator.ShowEndGameScreem("You are win!");
         }
 
-        private void Lose()
-        {
-            Time.timeScale = 0;
-
-            //   _mediator.ShowEndGameScreem("You are lose!");
-        }
-
-        private void OnBlockMoved(MovableBlock block)
+        private void OnBlockMoved(MovableBlock _)
         {
             _blocksInRequiredPositionsAmount = CheckForBlocksInRequiredPositions();
-
-            Debug.Log(_blocksInRequiredPositionsAmount);
 
             if (_blocksInRequiredPositionsAmount == _areaCellsAmount)
                 Win();
