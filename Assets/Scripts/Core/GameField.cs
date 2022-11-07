@@ -10,7 +10,7 @@ namespace Core
     {
         [SerializeField] private List<BlockArea> _areas;
 
-        [Inject] private FieldStartup _fieldStartup;
+        [Inject] private FieldStartuper _fieldStartup;
 
         private List<MovableBlock> _blocksOnGameField = new List<MovableBlock>();
 
@@ -60,7 +60,7 @@ namespace Core
         private void PrepareField()
         {
             List<Vector2> spawnableCoordinates = GetSpawnableCoordinates();
-            List<IBlock> blocks = _fieldStartup.GetMovableBlocks(spawnableCoordinates.Count);
+            List<IBlock> blocks = _fieldStartup.GetMovableBlocks();
 
             for(int i = 0; i < spawnableCoordinates.Count; i++)
             {

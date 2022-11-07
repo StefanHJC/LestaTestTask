@@ -6,7 +6,7 @@ public class FieldStartupInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.
-            Bind<Core.FieldStartup>().
+            Bind<Core.FieldStartuper>().
             FromNew().
             AsSingle();
     }
