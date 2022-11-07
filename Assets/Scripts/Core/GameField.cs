@@ -28,9 +28,7 @@ namespace Core
 
         public List<BlockArea> BlockAreas => _areas;
 
-        public event UnityAction BlockMovedToCorrectColumn;
-        public event UnityAction BlockMovedFromCorrectColumn;
-        public event UnityAction AllBlocksInCorrectColumns;
+        public event UnityAction<MovableBlock> BlockMoved;
 
         public void TryMoveBlock(MovableBlock block, Vector2 position)
         {
@@ -39,17 +37,12 @@ namespace Core
             if (Vector2.Distance(block.transform.position, position) <= maxAllowedMoveDistance)
                 MoveBlock(block, position);
 
-            OnBlockMoved();
+            BlockMoved?.Invoke(block);
         }
 
         private void MoveBlock(MovableBlock block, Vector2 position)
         {
             block.MoveTo(position);
-        }
-
-        private void OnBlockMoved()
-        {
-
         }
 
         private void Start()
