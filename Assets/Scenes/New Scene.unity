@@ -498,6 +498,7 @@ MonoBehaviour:
   - {fileID: 209519343}
   - {fileID: 187562363}
   - {fileID: 1486728029}
+  - {fileID: 2044858338}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -949,6 +950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72cccbadaefeb5a4eb055a61b97ca1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameLogic: {fileID: 0}
 --- !u!1001 &7162511035445168403
 PrefabInstance:
   m_ObjectHideFlags: 0

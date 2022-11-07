@@ -16,9 +16,9 @@ namespace Core
 
         private Dictionary<BlockType, int> _accumulatedBlocks = new Dictionary<BlockType, int>();
 
-        public List<IBlock> GetMovableBlocks()
+        public List<MovableBlock> GetMovableBlocks()
         {
-            List<IBlock> blocks = new List<IBlock>();
+            List<MovableBlock> blocks = new List<MovableBlock>();
             bool isAccumulated = false;
 
             foreach (var area in _gamefield.BlockAreas)
@@ -36,8 +36,7 @@ namespace Core
 
                 if (_accumulatedBlocks[blockTypeToSpawn] < areaByBlockType.Cells.Count)
                 {
-                    //Debug.Log($"ADDING {randomBlock.Type} CURRENT AMOUNT {_accumulatedBlocks[randomBlock.Type] + 1} TO {areaByBlockType.Type}");
-                    IBlock randomBlock = GetBlock(blockTypeToSpawn);
+                    MovableBlock randomBlock = (MovableBlock)GetBlock(blockTypeToSpawn);
                     blocks.Add(randomBlock);
                     _accumulatedBlocks[randomBlock.Type] += 1;
                 }

@@ -6,6 +6,7 @@ using Zenject;
 
 namespace Core
 {
+    [RequireComponent(typeof(GameLogic))]
     public class GameField : MonoBehaviour
     {
         [SerializeField] private List<BlockArea> _areas;
@@ -26,6 +27,7 @@ namespace Core
             public BlockType Type => _type;
         }
 
+        public IReadOnlyList<MovableBlock> BlocksOnGameField => _blocksOnGameField;
         public List<BlockArea> BlockAreas => _areas;
 
         public event UnityAction<MovableBlock> BlockMoved;
@@ -43,6 +45,7 @@ namespace Core
         private void MoveBlock(MovableBlock block, Vector2 position)
         {
             block.MoveTo(position);
+            Debug.Log("ROFLISH? " + _blocksOnGameField.Count);
         }
 
         private void Start()
@@ -50,17 +53,20 @@ namespace Core
             PrepareField();
         }
 
+        private void Update()
+        {
+            Debug.Log("UPDATE " + _blocksOnGameField.Count);
+        }
+
         private void PrepareField()
         {
             List<Vector2> spawnableCoordinates = GetSpawnableCoordinates();
-            List<IBlock> blocks = _fieldStartup.GetMovableBlocks();
+            _blocksOnGameField = _fieldStartup.GetMovableBlocks();
 
             for(int i = 0; i < spawnableCoordinates.Count; i++)
             {
-                var movableBlock = (MovableBlock)blocks[i];
-                movableBlock.transform.position = spawnableCoordinates[i];
-                movableBlock.transform.SetParent(transform);
-                _blocksOnGameField.Add(movableBlock);
+                _blocksOnGameField[i].transform.position = spawnableCoordinates[i];
+                _blocksOnGameField[i].transform.SetParent(transform);
             }
         }
 

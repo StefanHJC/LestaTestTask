@@ -14,6 +14,7 @@ namespace Core.Blocks
         private SpriteRenderer _renderer;
         private BlockType _type;
 
+        public BlockType Type => _type;
         BlockType IBlock.Type => _type;
 
         public void Init(BlockType type, Sprite sprite)
